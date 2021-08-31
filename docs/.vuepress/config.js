@@ -46,8 +46,8 @@ module.exports = {
   ],
 
 
-  //theme: "cloudlinux",
-  theme: 'F:/job/cloudlinux/imunify/cloudlinux-docs-theme/cloudlinux-doc-theme', // local path
+  theme: "cloudlinux",
+  //theme: 'F:/job/cloudlinux/imunify/cloudlinux-docs-theme/cloudlinux-doc-theme', // local path
 
 
   themeConfig: {
