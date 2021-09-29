@@ -56,7 +56,7 @@ module.exports = {
     docsBranch: "dev",
     docsDir: "docs",
     displayAllHeaders: true,
-    defaultURL: "/functionality/",
+    defaultURL: "/introduction/",
     sidebarDepth: 2,
     try_free: "https://kuberlogic.com/",
     cloudlinuxSite: "https://kuberlogic.com/",
@@ -68,11 +68,10 @@ module.exports = {
             title: "Contents",
             collapsable: false,
             children: [
-              "/functionality/",
-              "/keycloak/",
-              "/monitoring/",
-              "/operator/",
-              "/website/"
+              "/introduction/",
+              "/installation/",
+              "/components/",
+              "/quick-start/"
             ]
           }
         ],
