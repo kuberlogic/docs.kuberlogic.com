@@ -39,7 +39,7 @@ module.exports = {
       }
     }
   },
-  base: "/kuberlogic-doc/",
+  base: "/",
   head: [
     ["link", { rel: "icon", href: "/favicon.png" }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
