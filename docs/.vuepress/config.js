@@ -53,7 +53,7 @@ module.exports = {
   themeConfig: {
     repo: "cloudlinux/kuberlogic-doc",
     editLinks: true,
-    docsBranch: "dev",
+    docsBranch: "master",
     docsDir: "docs",
     displayAllHeaders: true,
     defaultURL: "/introduction/",
