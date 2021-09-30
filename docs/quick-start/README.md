@@ -2,7 +2,7 @@
 
 [[TOC]]
 
-## Creating new service and starting application from KuberLogic
+## Creating new service
 
 1. Go to the KuberLogic Ui and click **Create new service**
     |![](/images/CreateNewService.png)|
@@ -19,8 +19,7 @@
 5. Check the status of your new service on the **Services** tab. Initializing takes some time. Refresh the page to see a new status.
     |![](/images/ServicesTab.png)|
     |-----|
-6. When the status changes to **Ready** it's time to run an application (Arsenii to add)
-7. 
+
 
 ## Setting up backup
 
