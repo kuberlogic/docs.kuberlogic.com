@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/cloudlinux/imunify360-doc.svg?style=svg)](https://circleci.com/gh/cloudlinux/imunify360-doc)
+[![Publish to GitHub Pages](https://github.com/kuberlogic/kuberlogic-doc/actions/workflows/vuepress-deploy.yml/badge.svg)](https://github.com/kuberlogic/kuberlogic-doc/actions/workflows/vuepress-deploy.yml)
 
 # Install dependencies
 
