@@ -22,3 +22,5 @@ KuberLogic leverages a lot of top notch open-source projects and it requires a s
     kuberlogic-installer install all -c <configFile>
     ```
 4. Access KuberLogic Web UI via connection endpoint from the previous step
+
+Find the complete installation process in our [KuberLogic installation video](https://www.youtube.com/watch?v=qpPBe67V3L8&feature=youtu.be).
