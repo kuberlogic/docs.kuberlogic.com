@@ -32,7 +32,7 @@ The `operator` needs a set of configuration parameters passed as environment var
 
 ## apiserver
 
-KuberLogic provides a first class REST API to manage services, backup configurations and more.
+KuberLogic provides a first class REST API to manage services, backup configurations, and more.
 
 ### Apiserver configuration
 
