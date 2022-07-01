@@ -1,6 +1,6 @@
 # Comand line interface
 
-### Run the following commands to install KuberLogic CLI:
+Run the following commands to install KuberLogic CLI:
 
 ```bash
 wget [https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic](https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic)
