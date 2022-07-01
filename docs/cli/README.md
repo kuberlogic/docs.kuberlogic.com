@@ -14,7 +14,7 @@ cd kuberlogic/modules/dynamic-apiserver
 make build-cli
 ```
 
-### How to set hostname and token:
+### How to set hostname and token
 
 **For the Server side:**
 
