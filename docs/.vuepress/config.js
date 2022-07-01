@@ -56,7 +56,7 @@ module.exports = {
     docsBranch: "master",
     docsDir: "docs",
     displayAllHeaders: true,
-    defaultURL: "/introduction/",
+    defaultURL: "/getting-started/",
     sidebarDepth: 2,
     try_free: "https://kuberlogic.com/",
     cloudlinuxSite: "https://kuberlogic.com/",
@@ -68,10 +68,13 @@ module.exports = {
             title: "Contents",
             collapsable: false,
             children: [
-              "/introduction/",
-              "/installation/",
-              "/components/",
-              "/quick-start/"
+              "/getting-started/",
+              "/architecture/",
+              "/setting-ingress-controller/",
+              "/configuring/",
+              "/clean-up/",
+              "/cli/",
+              "/using/"
             ]
           }
         ],
