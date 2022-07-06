@@ -6,13 +6,13 @@ In this conception each tenant (application instance) is deployed into the same 
 
 ![](/images/architecture.png)
 
-### **Multi-instance architecture benefits:**
+#### Multi-instance architecture benefits
 
 - Stability— Instead of a single point of failure (the single application instance), each customer can exist in their own instance. If one instance fails, the others will remain unaffected.
 - Scalability — With a multi-instance architecture, scaling up is a simple matter of adding more resources. However, with a multi-tenant architecture, you could reach a point where you need to come up with a clustered application architecture whose deployment is usually far from trivial.
 - Security — When you are using a single database, all your data lives together. This becomes a major problem in the event of a security breach because all customers’ data can become vulnerable when a single account is compromised. With a multi-instance architecture, only a single customer’s data can be at risk.
 
-### **KuberLogic implements proven patterns of multi-tenancy on Kubernetes:**
+#### KuberLogic implements proven patterns of multi-tenancy on Kubernetes
 
 - *[Building a Multi-Tenant SaaS Solution Using Amazon EKS](https://aws.amazon.com/blogs/apn/building-a-multi-tenant-saas-solution-using-amazon-eks/)*
 - *[SaaS provider multi-tenancy on Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs/concepts/multitenancy-overview#saas_provider_multi-tenancy)*

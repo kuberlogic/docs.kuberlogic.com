@@ -3,7 +3,7 @@
 Run the following commands to install KuberLogic CLI:
 
 ```bash
-wget [https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic](https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic)
+wget https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic
 sudo chmod +x kuberlogic
 ```
 
@@ -14,7 +14,7 @@ cd kuberlogic/modules/dynamic-apiserver
 make build-cli
 ```
 
-### How to set hostname and token
+#### How to set hostname and token
 
 **For the Server side:**
 
@@ -44,7 +44,7 @@ hostname: <hostname of apiserver>
 
 In the case of config, you do not need to specify those flags in commands
 
-### Available commands
+#### Available commands
 
 **List all application instances (with default token):**
 
@@ -87,11 +87,11 @@ You can access your application through ID.DOMAIN (eg. tenant1.productname.site)
 Example:
 
 ```bash
-./kuberlogic service add --id demo --type docker-compose --limits.cpu 50 --host [example.com](http://example.com/) --replicas 1
+./kuberlogic service add --id demo --type docker-compose --limits.cpu 50 --host example.com --replicas 1
 ```
 
 Optionally you may want to enable TLS secured access to a provisioned service:
 
 ```bash
-./kuberlogic service add --id demo --type docker-compose --limits.cpu 50 --host [example.com](http://example.com/) --replicas 1 --tls_enabled
+./kuberlogic service add --id demo --type docker-compose --limits.cpu 50 --host example.com --replicas 1 --tls_enabled
 ```

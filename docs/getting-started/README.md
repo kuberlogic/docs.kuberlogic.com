@@ -106,7 +106,7 @@ kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=t
 Run the following commands to install KuberLogic CLI interface:
 
 ```bash
-wget [https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic](https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic)
+wget https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic
 sudo chmod +x kuberlogic
 ```
 
