@@ -63,6 +63,7 @@ module.exports = {
     logo: "/logo.png",
     footerCustomLogo: "/logo-color.png",
     footerCustomAltText: "KuberLogic",
+    submitRequestURL: "https://www.cloudlinux.com/contact/",
     sidebar: [
           {
             title: "Contents",
