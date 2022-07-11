@@ -7,8 +7,8 @@ Backups will only work if you use CSI based volumes. Backups will not work for `
 
 ---
 
-Backups and restores feature is provided via [Velero](https://velero.io) integration and disabled by default. To enable it, follow these steps:
-Both file-based and volume snapshot based backups are supported.
+Backups and restores feature is provided via [Velero](https://velero.io) integration. Both file-based and volume snapshot based backups are supported.
+Backups and restores are disabled by default. Follow these steps to configure environment and enable backup feature:
 
 1. Get supported Velero release (follow the [steps](https://velero.io/docs/v1.9/basic-install/) from the official Velero website)
 
