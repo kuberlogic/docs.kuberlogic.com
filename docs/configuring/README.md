@@ -1,2 +1,2 @@
-* [Backups/Restores](/backups-restores/)
-* [TLS](/tls/)
+* [Backups/Restores](backup-restore.md)
+* [TLS](tls.md)

@@ -99,7 +99,7 @@ kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=t
 
 #### 6. (Optional) Configure and enable KuberLogic backup/restore integration
 
-[Read more →](/configuring/backups-restores/)
+[Read more →](/configuring/backup-restore.md)
 
 #### 7. Deploy KuberLogic
 
@@ -124,7 +124,7 @@ Specify hostname in `~/.config/kuberlogic/config.yaml`where hostname is the kls-
 
 Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure this integration.
 
-[Read more →](/configuring/tls/)
+[Read more →](/configuring/tls.md)
 
 #### 9. Configuring DNS
 
