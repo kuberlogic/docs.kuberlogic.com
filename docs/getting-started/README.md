@@ -12,6 +12,7 @@ Follow the [Installation guide](/getting-started/#installation) to set up your e
 #### Features
 
 * Application instance (Tenant) orchestration (list/provision/delete)
+* Both manual and scheduled backups and restores
 * Custom domain (subdomain) support
 * Application (Tenant) isolation
 * SSL support
@@ -19,7 +20,7 @@ Follow the [Installation guide](/getting-started/#installation) to set up your e
 
 #### Coming soon
 
-* Integration with billing provider (Stripe)
+* Integration with billing provider (ChargeBee)
 * Scheduled and Instant backups (Velero)
 * Application instance updates [More details here →](https://kuberlogic.clearflask.com/)
 
@@ -50,9 +51,10 @@ You can also reach out to us at [info@kuberlogic.com](mailto:info@kuberlogic.com
 
 #### Prerequisites
 
-- Kubernetes cluster 1.20-1.23
+- Kubernetes cluster 1.20-1.24
     - StorageClass configured as a default
     - IngressClass configured as a default
+- (Optional for backups/restores) Velero v1.8.0-1.9.0 installed and configured
 
 #### 1. Clone the repository
 
@@ -70,20 +72,14 @@ You can set your own auth token for the API-server in file `modules/dynamic-oper
 
 #### 4. Deploy cert-manager
 
-Cert-manager is used by many KuberLogic components to provide certificates for admission webhooks.
+Cert-manager is used by many KuberLogic components to provide certificates for admission webhooks.
 
 ```bash
 cd kuberlogic/modules/dynamic-operator
 make deploy-certmanager
 ```
 
-#### 5. Deploy the KuberLogic operator
-
-```bash
-make deploy
-```
-
-#### 6. Setting Ingress controller
+#### 5. Setting Ingress controller
 
 Run the following command to apply kong ingress controller:
 
@@ -101,7 +97,17 @@ kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=t
 
 [Read more →](/setting-ingress-controller/)
 
-#### 7. Install KuberLogic comand line interface (CLI)
+#### 6. (Optional) Configure and enable KuberLogic backup/restore integration
+
+[Read more →](/configuring/backups-restores/)
+
+#### 7. Deploy KuberLogic
+
+```bash
+make deploy
+```
+
+#### 8. Install KuberLogic command line interface (CLI)
 
 Run the following commands to install KuberLogic CLI interface:
 
@@ -114,11 +120,11 @@ Specify hostname in `~/.config/kuberlogic/config.yaml`where hostname is the kls-
 
 [Read more →](/cli/)
 
-#### 8. Configuring TLS certificate
+#### 9. Configuring TLS certificate
 
 Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure this integration.
 
-[Read more →](/configuring/)
+[Read more →](/configuring/tls/)
 
 #### 9. Configuring DNS
 
