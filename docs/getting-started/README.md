@@ -11,18 +11,21 @@ Follow the [Installation guide](/getting-started/#installation) to set up your e
 
 #### Features
 
-* Application instance (Tenant) orchestration (list/provision/delete)
-* Both manual and scheduled backups and restores
+* Application instance (Tenant) orchestration (list/provision/delete/edit)
+* Integration (base layer) with billing provider (ChargeBee)
+* Scheduled and Instant backups (Velero integration)
 * Custom domain (subdomain) support
 * Application (Tenant) isolation
 * SSL support
-* RESTful API and CLI for service management (bare minimum)
+* RESTful API and CLI for service management
 
 #### Coming soon
 
-* Integration with billing provider (ChargeBee)
-* Scheduled and Instant backups (Velero)
-* Application instance updates [More details here →](https://kuberlogic.clearflask.com/)
+* Application instance updates (not documented yet)
+* Integration wit Sentry
+* Provision secure credentials for instances
+
+[You can find our roadmap here →](https://kuberlogic.clearflask.com/)
 
 #### Why use KuberLogic?
 
@@ -101,17 +104,21 @@ kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=t
 
 [Read more →](/configuring/backup-restore.md)
 
-#### 7. Deploy KuberLogic
+#### 7. (Optional) Configure and enable billing provider integration
 
-```bash
+[Read more →](/configuring/chargebee-integration.md)
+
+#### 8. Deploy KuberLogic
+
+```shell
 make deploy
 ```
 
-#### 8. Install KuberLogic command line interface (CLI)
+#### 9. Install KuberLogic command line interface (CLI)
 
 Run the following commands to install KuberLogic CLI interface:
 
-```bash
+```shell
 wget https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic
 sudo chmod +x kuberlogic
 ```
@@ -120,12 +127,12 @@ Specify hostname in `~/.config/kuberlogic/config.yaml`where hostname is the kls-
 
 [Read more →](/cli/)
 
-#### 9. Configuring TLS certificate
+#### 10. Configuring TLS certificate
 
 Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure this integration.
 
 [Read more →](/configuring/tls.md)
 
-#### 9. Configuring DNS
+#### 11. Configuring DNS
 
 Add DNS records for KuberLogic endpoints so they are pointing to KuberLogic Ingress IP. Alternatively, if you are evaluating KuberLogic, you may want to use /etc/hosts file to provide the access locally.
