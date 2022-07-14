@@ -71,9 +71,8 @@ module.exports = {
             children: [
               "/getting-started/",
               "/architecture/",
-              "/setting-ingress-controller/",
               "/configuring/",
-              "/clean-up/",
+              "/uninstall/",
               "/cli/",
               "/using/"
             ]
