@@ -1,8 +1,8 @@
-# Clean up after KL
+# Uninstalling KuberLogic
 
 1. Uninstall KuberLogic
 
-```jsx
+```shell
 make undeploy
 ```
 
@@ -17,5 +17,3 @@ kubectl delete kls,klr --all
 kubectl get pv
 kubectl delete pv <NAME>
 ```
-
-1. Optionally you may want to uninstall ingress controller

@@ -33,12 +33,6 @@ KuberLogic:
 * Simplify migration to multi-tenancy using industry-standard containers & K8s and allows rapid migration to SaaS with minimal application modification.
 * Gives independence and frees from vendor lock, as KuberLogic is open source and based on Kubernetes to provide a consistent platform anywhere.
 
-#### Requirements
-Kubernetes cluster 1.20-1.23
-
-* StorageClass configured as a default
-* IngressClass configured as a default
-
 #### Getting involved
 
 Feel free to open an issue if you need any help.
@@ -47,24 +41,25 @@ You can see the roadmap/announcements and leave your feedback [here](https://kub
 
 You can also reach out to us at [info@kuberlogic.com](mailto:info@kuberlogic.com) or join our [Slack community](https://join.slack.com/t/kuberlogic/shared_invite/zt-x845lggh-lne0taYmwLFgQ6XZEiTJoA).
 
+#### Requirements
+* Kubernetes cluster 1.20-1.24
+  * StorageClass configured as a default
+  * IngressClass configured as a default
+* (Optional for backups/restores) Velero v1.8.0-1.9.0 installed and configured
+
 ## Installation
 
-#### Prerequisites
-
-- Kubernetes cluster 1.20-1.24
-    - StorageClass configured as a default
-    - IngressClass configured as a default
-- (Optional for backups/restores) Velero v1.8.0-1.9.0 installed and configured
-
-#### 1. Clone the repository
+#### 1. Clone the repository and checkout `latest-release` tag
 
 ```bash
 git clone https://github.com/kuberlogic/kuberlogic
+cd kuberlogic
+git checkout latest-release
 ```
 
 #### 2. Add an application you want to provide as SaaS
 
-Paste the contents of your application's `docker-compose.yml` into `modules/dynamic-operator/config/manager/docker-compose.yaml`
+[Read more →](/configuring/docker-compose.md/)
 
 #### 3. Secure API-server (set Token)
 
@@ -81,21 +76,7 @@ make deploy-certmanager
 
 #### 5. Setting Ingress controller
 
-Run the following command to apply kong ingress controller:
-
-```bash
-kubectl apply -f https://bit.ly/k4k8s
-```
-
-Set the Ingress class by default. You should change “kong” (e.g. nginx) into the following command if you use another Ingress controller:
-
-```bash
-kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=true
-```
-
-*You should change “kong” (e.g. nginx) into the following command if you use another Ingress controller.
-
-[Read more →](/setting-ingress-controller/)
+[Read more →](/configuring/ingress.md/)
 
 #### 6. (Optional) Configure and enable KuberLogic backup/restore integration
 
