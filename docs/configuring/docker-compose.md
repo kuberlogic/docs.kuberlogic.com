@@ -1,18 +1,4 @@
 # Using docker-compose to provide your application
-- [Configuration](#configuration)
-- [Limitations](#limitations)
-  * [Only one service can have its ports published](#only-one-service-can-have-its-ports-published)
-  * [Only a single port can be published.](#only-a-single-port-can-be-published)
-  * [Local volume mounts are not supported](#local-volume-mounts-are-not-supported)
-- [Supported docker-compose extensions](#supported-docker-compose-extensions)
-  * [`x-kuberlogic-access-http-path`](#x-kuberlogic-access-http-path)
-- [Templating `docker-compose.yaml`](#templating-docker-composeyaml)
-  * [Examples](#examples)
-    + [Specify the image version](#specify-the-image-version)
-    + [Configure service URL parameter](#configure-service-url-parameter)
-    + [Generate a random key and save it to the persistent secret](#generate-a-random-key-and-save-it-to-the-persistent-secret)
-    + [Generate a random RSA key and access it for the different service](#generate-a-random-rsa-key-and-access-it-for-the-different-service)
-
 KuberLogic provides a simple way to deploy your application as SaaS by supporting `docker-compose.yaml` structure.
 
 ---

@@ -73,7 +73,6 @@ module.exports = {
               "/architecture/",
               "/configuring/",
               "/uninstall/",
-              "/cli/",
               "/using/"
             ]
           }

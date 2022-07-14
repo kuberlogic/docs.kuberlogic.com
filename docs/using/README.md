@@ -1,7 +1,4 @@
 # Using KuberLogic
-[REST API](#application-management-with-REST-API)  
-[CLI](#Application-management-with-CLI)
-
 
 KuberLogic comes with CLI and REST API that helps you manage your applications.
 
@@ -27,9 +24,6 @@ curl --header 'X-Token: <KuberLogic API server token>' <kuberlogic API server en
 #### Use help command to see the list of commands.
 ```shell
 ./kuberlogic help
-```
-    
-done
 ```
 
 #### List all application instances
