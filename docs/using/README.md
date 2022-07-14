@@ -20,7 +20,7 @@ curl --header 'X-Token: <KuberLogic API server token>' -X POST -H "Content-Type:
 
 #### List applications
 ```bash
-curl <kuberlogic API server endpoint>/api/v1/services
+curl --header 'X-Token: <KuberLogic API server token>' <kuberlogic API server endpoint>/api/v1/services
 ```
 
 ## Application management with CLI
