@@ -8,13 +8,13 @@ KuberLogic only supports a single application type configured via docker-compose
 
 ---
 
-## Configuration
+### Configuration
 To add your application just put the contents of your application's `docker-compose.yml` into `modules/dynamic-operator/config/manager/docker-compose.yaml`
 
-## Limitations
+### Limitations
 There are few limitations about supported docker-compose.yaml:
 
-### Only one service can have its ports published
+#### Only one service can have its ports published
 **Will work:**
 ```yaml
 version: "3"
@@ -49,7 +49,7 @@ services:
     - "./run.sh"
 ```
 
-### Only a single port can be published.
+#### Only a single port can be published.
 **Will work:**
 ```yaml
 version: "3"
@@ -83,7 +83,7 @@ services:
     - "./run.sh"
 ```
 
-### Local volume mounts are not supported
+#### Local volume mounts are not supported
 **Will work:**
 ```yaml
 version: "3"
@@ -111,10 +111,10 @@ services:
       - ./data:/data
 ```
 
-## Supported docker-compose extensions
+### Supported docker-compose extensions
 You can use the following extensions to your docker-compose.yaml:
 
-### `x-kuberlogic-access-http-path`
+#### `x-kuberlogic-access-http-path`
 This extension allows you to expose more than one `docker-compose` service by specifying HTTP path prefixes. Default path prefix is `/`.
 
 Duplicates are not allowed and will trigger a service provisioning error.
@@ -154,7 +154,7 @@ services:
       - "8080:8080"
 ```
 
-## Templating `docker-compose.yaml`
+### Templating `docker-compose.yaml`
 KuberLogic also supports templating certain service fields in `docker-compose.yaml` by using Go templates.
 
 Fields that can be templated are:
@@ -187,8 +187,8 @@ You should use `PersistentSecret` function to store the generated value of the f
 
 ---
 
-### Examples
-#### Specify the image version
+#### Examples
+##### Specify the image version
 Provisioned services will use `version` as the image tag or "latest" if not specified.
 
 ```yaml
@@ -202,7 +202,7 @@ services:
       - "8080:8080"
 ```
 
-#### Configure service URL parameter
+##### Configure service URL parameter
 ```yaml
 version: "3"
 services:
@@ -216,7 +216,7 @@ services:
       - BASE_URL={{ .Endpoint }}
 ```
 
-#### Generate a random key and save it to the persistent secret
+##### Generate a random key and save it to the persistent secret
 ```yaml
 version: "3"
 services:
@@ -230,7 +230,7 @@ services:
       - SECRET_KEY={{ .GenerateKey 30 | PersistentSecret }}
 ```
 
-#### Generate a random RSA key and access it for the different service
+##### Generate a random RSA key and access it for the different service
 RSA key will be generated and saved in a persistent secret under the "PRIVATE_RSA_KEY" key.
 ```yaml
 version: "3"
