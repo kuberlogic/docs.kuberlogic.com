@@ -13,8 +13,6 @@
     + [Generate a random key and save it to the persistent secret](#generate-a-random-key-and-save-it-to-the-persistent-secret)
     + [Generate a random RSA key and access it for the different service](#generate-a-random-rsa-key-and-access-it-for-the-different-service)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 KuberLogic provides a simple way to deploy your application as SaaS by supporting `docker-compose.yaml` structure.
 
 ---
