@@ -1,4 +1,19 @@
 # Using docker-compose to provide your application
+- [Configuration](#configuration)
+- [Limitations](#limitations)
+  * [Only one service can have its ports published](#only-one-service-can-have-its-ports-published)
+  * [Only a single port can be published.](#only-a-single-port-can-be-published)
+  * [Local volume mounts are not supported](#local-volume-mounts-are-not-supported)
+- [Supported docker-compose extensions](#supported-docker-compose-extensions)
+  * [`x-kuberlogic-access-http-path`](#x-kuberlogic-access-http-path)
+- [Templating `docker-compose.yaml`](#templating-docker-composeyaml)
+  * [Examples](#examples)
+    + [Specify the image version](#specify-the-image-version)
+    + [Configure service URL parameter](#configure-service-url-parameter)
+    + [Generate a random key and save it to the persistent secret](#generate-a-random-key-and-save-it-to-the-persistent-secret)
+    + [Generate a random RSA key and access it for the different service](#generate-a-random-rsa-key-and-access-it-for-the-different-service)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 KuberLogic provides a simple way to deploy your application as SaaS by supporting `docker-compose.yaml` structure.
 
@@ -9,6 +24,7 @@ KuberLogic only supports a single application type configured via docker-compose
 
 ---
 
+## Configuration
 To add your application just put the contents of your application's `docker-compose.yml` into `modules/dynamic-operator/config/manager/docker-compose.yaml`
 
 ## Limitations
@@ -181,7 +197,7 @@ There are also a few functions that can be used for environment variables:
 ---
 **NOTE**
 
-`Generate...` functions will generate different values each time the template is rendered. This will result in constant service res
+`Generate...` functions will generate different values each time the template is rendered. This will result in constant service restarts.
 
 You should use `PersistentSecret` function to store the generated value of the field in a persistent secret.
 
