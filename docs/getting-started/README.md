@@ -59,7 +59,7 @@ git checkout latest-release
 
 #### 2. Add an application you want to provide as SaaS
 
-[Read more →](/configuring/docker-compose.md/)
+[Read more →](/configuring/docker-compose.md)
 
 #### 3. Secure API-server (set Token)
 
@@ -76,7 +76,7 @@ make deploy-certmanager
 
 #### 5. Setting Ingress controller
 
-[Read more →](/configuring/ingress.md/)
+[Read more →](/configuring/ingress.md)
 
 #### 6. (Optional) Configure and enable KuberLogic backup/restore integration
 
