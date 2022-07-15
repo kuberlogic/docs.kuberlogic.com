@@ -1,5 +1,4 @@
 # Configuring KuberLogic
-[[ toc ]]
 
 ## Using docker-compose to provide your application
 KuberLogic provides a simple way to deploy your application as SaaS by supporting `docker-compose.yaml` structure.

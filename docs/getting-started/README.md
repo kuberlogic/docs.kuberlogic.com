@@ -59,7 +59,7 @@ git checkout latest-release
 
 #### 2. Add an application you want to provide as SaaS
 
-[Read more →](/configuring/#configuring-kuberlogic)
+[Read more →](/configuring/#using-dockercompose-to-provide-your-application)
 
 #### 3. Secure API-server (set Token)
 
