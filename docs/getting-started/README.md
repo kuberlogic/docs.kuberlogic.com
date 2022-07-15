@@ -59,7 +59,7 @@ git checkout latest-release
 
 #### 2. Add an application you want to provide as SaaS
 
-[Read more →](/configuring/docker-compose.md)
+[Read more →](/configuring/#configuring-kuberlogic)
 
 #### 3. Secure API-server (set Token)
 
@@ -76,11 +76,11 @@ make deploy-certmanager
 
 #### 5. Setting Ingress controller
 
-[Read more →](/configuring/ingress.md)
+[Read more →](/configuring/#setting-ingress-controller)
 
 #### 6. (Optional) Configure and enable KuberLogic backup/restore integration
 
-[Read more →](/configuring/backup-restore.md)
+[Read more →](/configuring/#enabling-backuprestore-capability)
 
 #### 7. Deploy KuberLogic
 
@@ -105,7 +105,7 @@ Specify hostname in `~/.config/kuberlogic/config.yaml`where hostname is the kls-
 
 Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure this integration.
 
-[Read more →](/configuring/tls.md)
+[Read more →](/configuring/#configuring-tls-certificate)
 
 #### 9. Configuring DNS
 
