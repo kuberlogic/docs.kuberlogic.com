@@ -341,7 +341,7 @@ Billing providers such as ChargeBee have ready-made components that you can easi
 ![](/images/billing_integration.png)
 
 - Step 1. Software vendors post a pricing table on a product site ([Products and checkout](https://www.chargebee.com/checkout-portal-docs/drop-in-integration.html#integrating-checkout)). Users can choose a product from the pricing table and proceed to checkout. Also you need to add [custom field](https://www.chargebee.com/docs/2.0/custom_fields.html) "domain" (as in example below) that will be updated by KuberLogic once application instance is ready.
-![](/images/Chargebee_custom_field.png)
+![](/images/chargebee_custom_field.png)
 
 - Step 2. The billing provider charges the user in accordance with the chosen subscription plan.
 
@@ -376,7 +376,7 @@ Example:
 ```
 Webhook configuration example:
 
-![](/images/webhook_example.png)
+![](/images/Webhook_example.png)
 
 **Webhook URL should lead to "kls-chargebee-integration" service External IP.**
 
