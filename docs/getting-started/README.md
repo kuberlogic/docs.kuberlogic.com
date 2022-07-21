@@ -1,47 +1,6 @@
 # Getting Started
 
-* [Welcome to KuberLogic](/getting-started/#welcome-to-kuberlogic)
-* [Installation](/getting-started/#installation)
-
-## Welcome to KuberLogic
-
-KuberLogic is an open-source solution that helps to deliver any single-tenant application (one stack per customer) to multiple users as-a-cloud service. KuberLogic allows software vendors to accelerate their journey to Software-as-a-Service (SaaS) with minimal modifications to the application.
-
-Follow the [Installation guide](/getting-started/#installation) to set up your environment and install KuberLogic.
-
-#### Features
-
-* Application instance (Tenant) orchestration (list/provision/delete)
-* Both manual and scheduled backups and restores
-* Custom domain (subdomain) support
-* Application (Tenant) isolation
-* SSL support
-* RESTful API and CLI for service management (bare minimum)
-
-#### Coming soon
-
-* Integration with billing provider (ChargeBee)
-* Scheduled and Instant backups (Velero)
-* Application instance updates [More details here →](https://kuberlogic.clearflask.com/)
-
-#### Why use KuberLogic?
-
-The ultimate goal of KuberLogic is to provide an easily accessible service to turn any containerized application into a cloud-native SaaS solution.
-
-KuberLogic:
-* Provides a straightforward and reliable way to deploy and manage application instances (Tenants) while achieving maximum resource utilization and standardization.
-* Simplify migration to multi-tenancy using industry-standard containers & K8s and allows rapid migration to SaaS with minimal application modification.
-* Gives independence and frees from vendor lock, as KuberLogic is open source and based on Kubernetes to provide a consistent platform anywhere.
-
-#### Getting involved
-
-Feel free to open an issue if you need any help.
-
-You can see the roadmap/announcements and leave your feedback [here](https://kuberlogic.clearflask.com/).
-
-You can also reach out to us at [info@kuberlogic.com](mailto:info@kuberlogic.com) or join our [Slack community](https://join.slack.com/t/kuberlogic/shared_invite/zt-x845lggh-lne0taYmwLFgQ6XZEiTJoA).
-
-#### Requirements
+## Requirements
 * Kubernetes cluster 1.20-1.24
   * StorageClass configured as a default
   * IngressClass configured as a default
@@ -57,20 +16,28 @@ cd kuberlogic
 git checkout latest-release
 ```
 
-#### 2. Add an application you want to provide as SaaS
+#### 2. Add an application you want to provide as SaaS. 
 
-[Read more →](/configuring/#using-dockercompose-to-provide-your-application)
+> **If you install KuberLogic for testing and studying you can skip this and next step (sample app is also included), and proceed to Step #4.**
 
-#### 3. Secure API-server (set Token)
+To add your application just put the contents of your application's `docker-compose.yml` into `modules/dynamic-operator/config/manager/docker-compose.yaml`. There are several limitations [Read more →](/configuring/#using-dockercompose-to-provide-your-application)
 
-You can set your own auth token for the API-server in file `modules/dynamic-operator/config/manager/kustomization.yaml`
+#### 3. Edit KuberLogic configuration file
+
+General KuberLogic settings are carried out by editing `modules/dynamic-operator/config/manager/kustomization.yaml` file:
+
+- Set your own token to secure API-server (Default token = 8ZTjsD3t2Q3Yq-C4-hoahcFn).
+
+- Configure and enable KuberLogic backup/restore integration. [Read more →](/configuring/#enabling-backuprestore-capability)
+
+- Configure and enable Billing provider integration. [Read more →](/configuring/#billing_integration)
 
 #### 4. Deploy cert-manager
 
 Cert-manager is used by many KuberLogic components to provide certificates for admission webhooks.
 
 ```bash
-cd kuberlogic/modules/dynamic-operator
+cd modules/dynamic-operator
 make deploy-certmanager
 ```
 
@@ -78,17 +45,14 @@ make deploy-certmanager
 
 [Read more →](/configuring/#setting-ingress-controller)
 
-#### 6. (Optional) Configure and enable KuberLogic backup/restore integration
 
-[Read more →](/configuring/#enabling-backuprestore-capability)
-
-#### 7. Deploy KuberLogic
+#### 6. Deploy KuberLogic
 
 ```bash
 make deploy
 ```
 
-#### 8. Install KuberLogic command line interface (CLI)
+#### 7. Install KuberLogic command line interface (CLI)
 
 Run the following commands to install KuberLogic CLI interface:
 
@@ -99,11 +63,11 @@ sudo chmod +x kuberlogic
 
 Specify hostname in `~/.config/kuberlogic/config.yaml`where hostname is the kls-api-server external-IP.
 
-[Read more →](/cli/)
+ [Read more →](/cli/)
 
-#### 9. Configuring TLS certificate
+#### 8. Configuring TLS certificate
 
-Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure this integration.
+Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure.
 
 [Read more →](/configuring/#configuring-tls-certificate)
 
