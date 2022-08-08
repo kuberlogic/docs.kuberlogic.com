@@ -3,13 +3,11 @@
 ## Using docker-compose to provide your application
 KuberLogic provides a simple way to deploy your application as SaaS by supporting `docker-compose.yaml` structure.
 
-### Configuration
-
 ::: warning
 KuberLogic only supports a single application type configured via docker-compose.yaml. Any change to this file will be propagated to all KuberLogic managed applications.
 :::
 
-To add your application just put the contents of your application's `docker-compose.yml` into `modules/dynamic-operator/config/manager/docker-compose.yaml`
+You will be asked to enter path to the docker-compose.yml during the installation process, otherwise KuberLogic will be provisioned with demo application.
 
 ### Limitations
 There are few limitations about supported docker-compose.yaml:
@@ -278,8 +276,6 @@ You can only have a single default ingressClass.
 If you don't have a default `ingressClass` installed, you need to set up one:
 
 ```shell
-
-```bash
 kubectl get ingressclasses
 kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=true
 ```
@@ -288,16 +284,9 @@ kubectl annotate ingressclass kong ingressclass.kubernetes.io/is-default-class=t
 
 ## Configuring TLS certificate
 
-It is assumed that the TLS certificate will a wildcard certificate. All KuberLogic managed applications share the same certificate via sharing the same ingress controller.
+It is assumed that the TLS certificate will be a wildcard certificate. All KuberLogic managed applications share the same certificate by sharing the same ingress controller.
 
-Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure this integration:
-
-1. Switch to **modules/dynamic-operator/config/certificate** directory and replace the value of tls.crt file (should be plain text TLS certificate) and tls.key (should be plain text TLS private key).
-2. Go to the **modules/dynamic-operator** directory and deploy updated manifests
-
-```bash
-make deploy
-```
+Kuberlogic allows you to secure application access with TLS certificate. KuberLogic uses a sample TLS certificate by default.
 
 ## Enabling backup/restore capability
 
@@ -326,13 +315,7 @@ velero get backup-locations
 # Example output
 # NAME      PROVIDER   BUCKET/PREFIX     PHASE       LAST VALIDATED                   ACCESS MODE   DEFAULT
 # default   aws        kl-demo-backups   Available   2022-07-11 13:54:24 +0300 EEST   ReadWrite     true
-```
 
-4. Enable and configure backups for KuberLogic
-    1. Open file `modules/dynamic-operator/config/manager/kustomization.yaml`
-    2. Change `backups_enabled=false` to `backups_enabled=true`
-    3. If your Velero provider plugin supports snapshot based backups, change `backups_snapshots_enabled=false` to `backups_snapshots_enabled=true`
-    
 ## Billing integration
 
 KuberLogic uses webhooks to integrate with various billing providers. Below you can find a scheme of core moving parts of a billing provider integration and instructions on how to set up ChargeBee to work with KuberLogic.
@@ -358,14 +341,9 @@ Billing providers such as ChargeBee have ready-made components that you can easi
 
 ### Configuring KuberLogic
 
-You should set Chargebee integration params in `kuberlogic/modules/dynamic-operator/config/manager/kustomization.yaml`
+You will be asked to configure Chargebee integration during the installation process. Leaving `Chargebee site` parameter empty will disable Chargebee integration.
 
-```shell
-  - chargebee_site=
-  - chargebee_key=
-  - kuberlogic_domain=
-```
-* "kuberlogic_domain" field is using by KuberLogic to generate subdomains for the application instances (e.g. http://magnetic-llama.example.com,  http://pleasant-antelope.example.com)
+* "KuberLogic domain" configuration parameter is used by KuberLogic to generate subdomains for the application instances (e.g. http://magnetic-llama.example.com,  http://pleasant-antelope.example.com)
 
 Example:
 

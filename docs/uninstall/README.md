@@ -3,7 +3,7 @@
 1. Uninstall KuberLogic
 
 ```shell
-make undeploy
+kubectl delete ns kuberlogic
 ```
 
 1. Cleanup all KuberLogic resources

@@ -8,69 +8,39 @@
 
 ## Installation
 
-#### 1. Clone the repository and checkout `latest-release` tag
+#### 1. Prepare a docker-compose file for an application you want to provide as SaaS
 
-```bash
-git clone https://github.com/kuberlogic/kuberlogic
-cd kuberlogic
-git checkout latest-release
-```
+> **If you install KuberLogic for testing and studying you can skip this step (sample app is also included).**
 
-#### 2. Add an application you want to provide as SaaS. 
+See [more](/configuring/#using-dockercompose-to-provide-your-application) about docker-compose.yml limitations.
 
-> **If you install KuberLogic for testing and studying you can skip this and next step (sample app is also included), and proceed to Step #4.**
-
-To add your application just put the contents of your application's `docker-compose.yml` into `modules/dynamic-operator/config/manager/docker-compose.yaml`. There are several limitations [Read more →](/configuring/#using-dockercompose-to-provide-your-application)
-
-#### 3. Edit KuberLogic configuration file
-
-General KuberLogic settings are carried out by editing `modules/dynamic-operator/config/manager/kustomization.yaml` file:
-
-- Set your own token to secure API-server (Default token = 8ZTjsD3t2Q3Yq-C4-hoahcFn).
-
-- Configure and enable KuberLogic backup/restore integration. [Read more →](/configuring/#enabling-backuprestore-capability)
-
-- Configure and enable Billing provider integration. [Read more →](/configuring/#billing_integration)
-
-#### 4. Deploy cert-manager
-
-Cert-manager is used by many KuberLogic components to provide certificates for admission webhooks.
-
-```bash
-cd modules/dynamic-operator
-make deploy-certmanager
-```
-
-#### 5. Setting Ingress controller
+#### 2. Configure Ingress controller
 
 [Read more →](/configuring/#setting-ingress-controller)
 
+#### 3. (Optional) Configure and enable Velero for backup/restore integration
 
-#### 6. Deploy KuberLogic
+[Read more →](/configuring/#enabling-backuprestore-capability)
 
-```bash
-make deploy
-```
+#### 4. Get KuberLogic CLI
 
-#### 7. Install KuberLogic command line interface (CLI)
-
-Run the following commands to install KuberLogic CLI interface:
-
-```bash
-wget https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic
+```shell
+wget https://github.com/kuberlogic/kuberlogic/releases/download/latest/kuberlogic_$(uname -m)_$(uname | tr '[:upper:]' '[:lower:]') -O kuberlogic
 sudo chmod +x kuberlogic
 ```
 
-Specify hostname in `~/.config/kuberlogic/config.yaml`where hostname is the kls-api-server external-IP.
+#### 5. Install KuberLogic
 
- [Read more →](/cli/)
+Run the following command to install KuberLogic into your Kubernetes cluster
 
-#### 8. Configuring TLS certificate
+```shell
+./kuberlogic install
+```
 
-Kuberlogic allows you to secure application access with TLS certificate. Follow the steps below to configure.
+CLI will create a config file at `~/.config/kuberlogic/config.yaml` when the installation process is finished. Usually you do not have to modify this file manually, it is updated after each KuberLogic CLI installation/configuration run.
 
-[Read more →](/configuring/#configuring-tls-certificate)
+The command above can also be used to modify KuberLogic configuration parameters when it is already installed.
 
-#### 9. Configuring DNS
+#### 6. Configure DNS
 
-Add DNS records for KuberLogic endpoints so they are pointing to KuberLogic Ingress IP. Alternatively, if you are evaluating KuberLogic, you may want to use /etc/hosts file to provide the access locally.
+Add DNS record for KuberLogic API endpoint, so it is pointing to KuberLogic Ingress IP. Alternatively, if you are evaluating KuberLogic, you may want to use /etc/hosts file to provide the access locally.
